@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
       body {
-        background: linear-gradient(135deg, #e6f0ff, #ede7f6); /* soft blue + lavender */
+        background-color: #f5f5ff; /* soft blue background */
         color: #1a237e;
         transition: background 0.4s, color 0.4s;
         font-family: Arial, sans-serif;
@@ -14,28 +14,38 @@
 
       .card {
         width: 90%;
-        border-radius: 30px;
-        background: linear-gradient(145deg, #bbdefb, #e1bee7); /* blue + purple gradient */
-        box-shadow: 8px 8px 20px rgba(26, 35, 126, 0.2),
-                    -8px -8px 20px rgba(106, 27, 154, 0.15);
-        transition: background 0.4s, color 0.4s, box-shadow 0.4s;
-        color: #1a237e;
+        border-radius: 20px;
+        padding: 20px;
+        background: #fff; /* solid interior */
+        position: relative;
+        z-index: 0;
+      }
+
+      /* Gradient outline effect */
+      .card::before {
+        content: "";
+        position: absolute;
+        top: -3px; left: -3px; right: -3px; bottom: -3px;
+        border-radius: 23px;
+        background: linear-gradient(135deg, #42a5f5, #ab47bc); /* blue → purple */
+        z-index: -1;
       }
 
       h1, h5, p {
         padding: 10px;
       }
 
-      /* Dark Mode */
+      /* Dark mode */
       body.dark {
-        background: linear-gradient(135deg, #1a237e, #4a148c); /* deep blue + deep purple */
+        background-color: #120024; /* deep purple background */
         color: #f3e5f5;
       }
       body.dark .card {
-        background: linear-gradient(145deg, #311b92, #6a1b9a); /* rich purple + blue */
+        background: #1e1e2f; /* dark solid interior */
         color: #f3e5f5;
-        box-shadow: 10px 10px 25px rgba(0,0,0,0.6),
-                   -10px -10px 25px rgba(106, 27, 154, 0.5);
+      }
+      body.dark .card::before {
+        background: linear-gradient(135deg, #5c6bc0, #ba68c8); /* softer blue → purple glow */
       }
 
       /* Toggle switch */
@@ -53,7 +63,7 @@
         position: absolute;
         cursor: pointer;
         top: 0; left: 0; right: 0; bottom: 0;
-        background-color: #7986cb; /* bluish purple */
+        background-color: #90caf9;
         transition: 0.4s;
         border-radius: 34px;
       }
@@ -69,7 +79,7 @@
         border-radius: 50%;
       }
       input:checked + .slider {
-        background-color: #ba68c8; /* purple accent */
+        background-color: #ba68c8;
       }
       input:checked + .slider:before {
         transform: translateX(26px);
@@ -89,7 +99,8 @@
           <h1>Autoclave Text Module</h1>
           <h5>Operate</h5>
         </center>
-        <p>English: Pre-Loading Preparation: Inspect chamber for cleanliness and absence of debris. Check water reservoir level (if applicable).<br><br>
+        <p>
+English: Pre-Loading Preparation: Inspect chamber for cleanliness and absence of debris. Check water reservoir level (if applicable).<br><br>
 Sinhala: Pre-Loading සූදානම: Chamber පිරිසිදුද, කඩදාසි/ සුන්බුන් වැනි අපද්‍රව්‍ය නොමැතිද පරීක්ෂා කරන්න. (අදාළ නම්) water reservoir මට්ටම බලන්න.<br><br>
 Tamil: Pre-Loading தயாரிப்பு: Chamber சுத்தமாகவும் debris இன்றி உள்ளதா பாருங்கள். (தேவையெனில்) water reservoir அளவைச் சரிபார்க்கவும்.<br><br>
 

@@ -122,6 +122,35 @@
       }
 
       .lang { display: none; }
+      /* Normalize option colors (light mode) */
+.language-select option {
+  background-color: #ffffff;   /* list background */
+  color: #1a237e;              /* text */
+}
+
+/* Hover/selected colors (light) */
+.language-select option:hover,
+.language-select option:checked {
+  background-color: #e8f0ff;   /* soft blue */
+  color: #1a237e;
+}
+
+/* Dark mode list colors */
+body.dark .language-select option {
+  background-color: #1e1e2f;   /* dark panel */
+  color: #f3e5f5;              /* light text */
+}
+
+/* Hover/selected in dark */
+body.dark .language-select option:hover,
+body.dark .language-select option:checked {
+  background-color: #2a2a3f;   /* slightly lighter dark */
+  color: #f3e5f5;
+}
+
+/* Hint to browsers about theming (helps on some platforms) */
+.language-select { color-scheme: light dark; }
+
     </style>
   </head>
   <body class="dark">
